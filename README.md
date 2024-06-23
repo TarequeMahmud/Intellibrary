@@ -1,1 +1,2 @@
-# IntelliBrery: an AI based Librery Management app
+# IntelliBrery
+## An AI based Librery Management Web Application
