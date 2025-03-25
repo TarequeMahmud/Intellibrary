@@ -18,6 +18,7 @@ const ShowBook = () => {
       })
       .catch((e) => {
         console.log(e);
+        enqueueSnackbar("Something went wrong.", { variant: "error" });
         setLoading(false);
       });
   }, []);

@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSnackbar } from "notistack";
 import BackButton from "../components/Backbutton";
+import { useSnackbar } from "notistack";
 
 const EditBook = () => {
   const [title, setTitle] = useState("");
@@ -42,11 +42,12 @@ const EditBook = () => {
       .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
+        enqueueSnackbar("Book edited successfully", { variant: "success" });
         navigate("/");
       })
       .catch((error) => {
         setLoading(false);
-        alert("An error happened. Please try again");
+        enqueueSnackbar("Something went wrong.", { variant: "error" });
         console.log(error);
       });
   };

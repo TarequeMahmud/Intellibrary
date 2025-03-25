@@ -25,11 +25,12 @@ const CreateBook = () => {
       .post("http://localhost:5555/books", data)
       .then(() => {
         setLoading(false);
+        enqueueSnackbar("Book created successfully", { variant: "success" });
         navigate("/");
       })
       .catch((error) => {
         setLoading(false);
-        alert("An error happened. Please try again");
+        enqueueSnackbar("Something went wrong.", { variant: "error" });
         console.log(error);
       });
   };
