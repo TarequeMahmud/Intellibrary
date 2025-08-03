@@ -2,7 +2,7 @@ import express, { response } from "express";
 import { Book } from "../models/bookModel.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI("AIzaSyAwO-ZyN4OAtDXlJgKS62fjsgIvUiz44VY");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 const router = express.Router();
